@@ -1,0 +1,133 @@
+h1, h2 {
+    text-align: center;
+    margin-bottom: 3em;
+    color: white;
+}
+
+header {
+    background-image: url('https://media.sproutsocial.com/uploads/3b_youtube-cover-photo_clean@1x-1.png');
+    background-position: center;
+    background-size: 2000px;
+    margin-top: 0;
+    background-repeat: no-repeat;
+    height: 250px;
+}
+
+.header {
+    text-transform: uppercase;                         
+    white-space: nowrap;                            
+    font-family: "Honk";
+    font-size: xx-large;
+}
+
+h3 {
+    color: white;
+}
+
+/* 
+SNAKE
+*/
+.bodyGame {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    scroll-behavior: inherit;
+}
+.wrapper {
+    width: 65vmin;
+    height: 70vmin;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background: #293447;
+    border-radius: 5px;
+    margin-bottom: 100px;
+}
+
+.game-details {
+    color: #B8C6DC;
+    font-size: 1.2rem;
+    font-weight: 500;
+    padding: 20px 27px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.play-board {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template: repeat(30, 1fr) / repeat(30, 1fr);
+    background: #212837;
+}
+
+.play-board .food {
+    background: #FF003D;
+}
+
+.play-board .head {
+    background: green;
+}
+
+.controls {
+    display: none;
+    /* justify-content: space-between; */
+    justify-content: center;
+    gap: 2px;
+    margin-bottom: 5px;
+}
+.controls i {
+    padding: 25px 0;
+    text-align: center;
+    cursor: pointer;
+    color: #B8C6DC;
+    font-size: 1.3rem;
+    width: 25%;
+    border: 1px solid #171b26;
+    
+    
+}
+.up {
+    display: none;
+    justify-content: center;
+    margin: 5px;
+}
+
+.up i {
+    padding: 25px 0;
+    text-align: center;
+    cursor: pointer;
+    color: #B8C6DC;
+    font-size: 1.3rem;
+    width: 25%;
+    
+    border: 1px solid #171b26;
+    
+    
+}
+
+@media screen and (max-width: 800px){
+    .wrapper {
+        width: 90vmin;
+        height: 115vmin;
+    }
+    .game-details {
+        font-size: 1rem;
+        padding: 15px 27px;
+    }
+    .controls {
+        display: flex;
+    }
+    .up {
+        display: flex;
+    }
+    .controls i {
+        padding: 15px 0;
+        font-size: 1rem;
+    }
+    .up i {
+        padding: 15px 0;
+        font-size: 1rem;
+    }
+}
