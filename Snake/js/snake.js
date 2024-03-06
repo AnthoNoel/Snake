@@ -13,6 +13,9 @@ let snakeBody = [];
 let positionX = 0, positionY = 0;
 let setIntervalId;
 let score = 0;
+const keyCodes = [
+    37,38,39,40
+]
 
 // Getting high score from the storage local
 let scoreMax = localStorage.getItem("high-score") || 0;
@@ -29,10 +32,14 @@ const handleGameOver = () => {
     clearInterval(setIntervalId);
     alert('Game OVER! Clique sur OK pour réessayer')
     location.reload();
-    document.documentElement.style.overflow = "";
+    
 }
 const changeDirectionSnake = (e) => {
-    document.documentElement.style.overflow = 'hidden';
+    // prevent to scroll, just activate for keyboard arrow
+    if (e.keyCode && keyCodes.indexOf(e.keyCode) !== -1){
+        e.preventDefault();
+    }
+
     // Direction for keyboard
     if (e.key === 'ArrowUp' && positionX != 1){
         positionX = -1;
@@ -54,6 +61,8 @@ controls.forEach(key => {
     key.addEventListener('click', () => changeDirectionSnake({key: key.dataset.key}))
 })
 up.addEventListener('click', () => changeDirectionSnake({key: up.dataset.key}));
+
+
 const initGame = () => {
 
     
@@ -103,8 +112,6 @@ const initGame = () => {
 
     playBoard.innerHTML = classHtml;
 }
-
-
 
 
 changeFoodPosition();
