@@ -41,18 +41,18 @@ const changeDirectionSnake = (e) => {
     }
 
     // Direction for keyboard
-    if (e.key === 'ArrowUp' && positionX != 1) {
-        positionX = -1;
-        positionY = 0;
-    } else if (e.key === 'ArrowDown' && positionX != -1) {
-        positionX = 1;
-        positionY = 0;
-    } else if (e.key === 'ArrowLeft' && positionY != 1) {
+    if (e.key === 'ArrowUp' && positionY != 1) {
         positionX = 0;
         positionY = -1;
-    } else if (e.key === 'ArrowRight' && positionY != -1) {
+    } else if (e.key === 'ArrowDown' && positionY != -1) {
         positionX = 0;
         positionY = 1;
+    } else if (e.key === 'ArrowLeft' && positionX != 1) {
+        positionX = -1;
+        positionY = 0;
+    } else if (e.key === 'ArrowRight' && positionX != -1) {
+        positionX = 1;
+        positionY = 0;
     }
 
 }
@@ -70,7 +70,7 @@ const initGame = () => {
     let classHtml = `<div class="food" style="grid-area: ${foodY} / ${foodX}"></div>`;
 
     // Check if the snake hit food
-    if (snakeX === foodY && snakeY === foodX) {
+    if (snakeX === foodX && snakeY === foodY) {
         document.documentElement.style.overflow = 'hidden';
         changeFoodPosition();
         snakeBody.push([foodX, foodY])
@@ -88,7 +88,7 @@ const initGame = () => {
 
     }
 
-    snakeBody[0] = [snakeY, snakeX]; // setting first element of snakebody to current position 
+    snakeBody[0] = [snakeX, snakeY]; // setting first element of snakebody to current position 
 
     // applicate position to snake
     snakeX += positionX;
